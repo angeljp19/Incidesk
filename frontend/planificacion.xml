@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sistemaControlIncidenciasDocumentacion>
+  <contextoProyecto>
+    <tipoDocumentacion>Planificación retrospectiva</tipoDocumentacion>
+    <enfoqueMetodologico>
+      <metodologiaReferencial>Scrum</metodologiaReferencial>
+      <aplicacionMetodologia>
+        La metodología Scrum fue utilizada como marco de referencia conceptual.
+        Debido al contexto académico y a la ejecución individual del proyecto,
+        una sola persona asumió de manera integrada los roles de Product Owner,
+        Scrum Master y Equipo de Desarrollo, adaptando ceremonias, artefactos
+        e iteraciones de forma flexible.
+      </aplicacionMetodologia>
+    </enfoqueMetodologico>
+  </contextoProyecto>
+
+  <roles>
+    <rol>
+      <nombre>Product Owner</nombre>
+      <descripcion>
+        Responsable de definir los objetivos del sistema, priorizar los
+        requerimientos funcionales y no funcionales, y validar que el producto
+        final satisficiera las necesidades planteadas.
+      </descripcion>
+      <asignacion>Ejecución individual del proyecto</asignacion>
+    </rol>
+    <rol>
+      <nombre>Scrum Master</nombre>
+      <descripcion>
+        Responsable de la autoorganización del trabajo, adaptación del marco
+        Scrum al contexto académico y seguimiento del avance por iteraciones.
+      </descripcion>
+      <asignacion>Ejecución individual del proyecto</asignacion>
+    </rol>
+    <rol>
+      <nombre>Equipo de Desarrollo</nombre>
+      <descripcion>
+        Responsable del diseño, implementación, pruebas e integración de
+        todas las funcionalidades del sistema.
+      </descripcion>
+      <asignacion>Ejecución individual del proyecto</asignacion>
+    </rol>
+  </roles>
+
+  <fasesProyecto>
+    <fase nombre="Análisis">
+      <descripcion>
+        Identificación de necesidades, definición de requerimientos funcionales
+        y no funcionales, y delimitación del alcance del sistema de control de incidencias.
+      </descripcion>
+    </fase>
+    <fase nombre="Diseño">
+      <descripcion>
+        Diseño de la arquitectura del sistema, modelo de datos, flujos de
+        interacción y estructura general de la aplicación web.
+      </descripcion>
+    </fase>
+    <fase nombre="Desarrollo">
+      <descripcion>
+        Implementación progresiva de funcionalidades mediante iteraciones
+        conceptuales, incorporando incrementos funcionales reales al sistema.
+      </descripcion>
+    </fase>
+    <fase nombre="Pruebas">
+      <descripcion>
+        Validación funcional, pruebas manuales de flujos principales,
+        corrección de errores y ajustes de rendimiento y seguridad.
+      </descripcion>
+    </fase>
+    <fase nombre="Cierre">
+      <descripcion>
+        Evaluación del cumplimiento de objetivos, documentación final
+        y análisis de limitaciones del sistema implementado.
+      </descripcion>
+    </fase>
+  </fasesProyecto>
+
+  <sprints>
+
+    <sprint id="Sprint-1">
+      <objetivos>
+        Establecer la base técnica del sistema de control de incidencias,
+        implementar la autenticación de usuarios y definir la estructura
+        de roles y permisos.
+      </objetivos>
+      <funcionalidades>
+        <funcionalidad>Registro y autenticación de usuarios mediante credenciales seguras</funcionalidad>
+        <funcionalidad>Asignación de roles y control de acceso según permisos</funcionalidad>
+        <funcionalidad>Gestión básica de sesiones y protección de rutas</funcionalidad>
+      </funcionalidades>
+      <entregables>
+        <entregable>Módulo de autenticación funcional</entregable>
+        <entregable>Estructura inicial de base de datos de usuarios</entregable>
+        <entregable>Arquitectura base del backend y frontend</entregable>
+      </entregables>
+    </sprint>
+
+    <sprint id="Sprint-2">
+      <objetivos>
+        Desarrollar la gestión de usuarios y la creación y visualización
+        inicial de tickets de soporte.
+      </objetivos>
+      <funcionalidades>
+        <funcionalidad>Creación, edición, activación y eliminación de usuarios</funcionalidad>
+        <funcionalidad>Creación de tickets con título, descripción, categoría y prioridad</funcionalidad>
+        <funcionalidad>Visualización detallada de tickets registrados</funcionalidad>
+      </funcionalidades>
+      <entregables>
+        <entregable>Módulo de gestión de usuarios</entregable>
+        <entregable>Módulo de creación y listado de tickets</entregable>
+        <entregable>Persistencia estructurada de tickets en base de datos</entregable>
+      </entregables>
+    </sprint>
+
+    <sprint id="Sprint-3">
+      <objetivos>
+        Implementar el flujo completo de atención de tickets, incluyendo
+        asignación, seguimiento, estados y comunicación interna.
+      </objetivos>
+      <funcionalidades>
+        <funcionalidad>Asignación y reasignación de tickets a técnicos</funcionalidad>
+        <funcionalidad>Modificación de estados de tickets</funcionalidad>
+        <funcionalidad>Registro de comentarios y actualizaciones por ticket</funcionalidad>
+        <funcionalidad>Mensajería directa entre administradores y técnicos</funcionalidad>
+      </funcionalidades>
+      <entregables>
+        <entregable>Flujo de atención de tickets completo</entregable>
+        <entregable>Historial de seguimiento por ticket</entregable>
+        <entregable>Módulo de mensajería interna</entregable>
+      </entregables>
+    </sprint>
+
+    <sprint id="Sprint-4">
+      <objetivos>
+        Incorporar funcionalidades de cierre, búsqueda avanzada,
+        estadísticas y fortalecer los requerimientos no funcionales.
+      </objetivos>
+      <funcionalidades>
+        <funcionalidad>Cierre de tickets con solución final y fecha de cierre</funcionalidad>
+        <funcionalidad>Búsqueda y filtrado de tickets por estado, prioridad e identificador</funcionalidad>
+        <funcionalidad>Generación de estadísticas y reportes visuales</funcionalidad>
+      </funcionalidades>
+      <entregables>
+        <entregable>Módulo de cierre de tickets</entregable>
+        <entregable>Filtros y búsquedas avanzadas</entregable>
+        <entregable>Dashboard de estadísticas</entregable>
+      </entregables>
+    </sprint>
+
+  </sprints>
+
+  <requerimientosNoFuncionales>
+
+    <seguridad>
+      <descripcion>
+        El sistema fue desarrollado como una aplicación web segura, utilizando
+        autenticación basada en tokens, control de acceso por roles,
+        cifrado de contraseñas y protección frente a vulnerabilidades comunes
+        como XSS y CSRF mediante prácticas seguras de desarrollo.
+      </descripcion>
+    </seguridad>
+
+    <arquitectura>
+      <descripcion>
+        Se implementó una arquitectura modular cliente-servidor,
+        separando responsabilidades entre frontend y backend,
+        facilitando el mantenimiento, escalabilidad y futuras ampliaciones.
+      </descripcion>
+    </arquitectura>
+
+    <rendimiento>
+      <descripcion>
+        El sistema garantiza tiempos de respuesta adecuados en operaciones
+        críticas mediante consultas optimizadas, manejo eficiente de recursos
+        y control de errores en el servidor.
+      </descripcion>
+    </rendimiento>
+
+    <escalabilidad>
+      <descripcion>
+        La estructura del sistema permite la incorporación de nuevos usuarios,
+        aumento del volumen de tickets y extensión de funcionalidades
+        sin comprometer su funcionamiento.
+      </descripcion>
+    </escalabilidad>
+
+    <usabilidad>
+      <descripcion>
+        La interfaz de usuario fue diseñada para ser intuitiva, responsiva
+        y compatible con navegadores modernos, asegurando una experiencia
+        consistente en dispositivos móviles y de escritorio.
+      </descripcion>
+    </usabilidad>
+
+    <disponibilidad>
+      <descripcion>
+        El sistema cumple principios básicos de disponibilidad,
+        asegurando el acceso durante el horario operativo previsto
+        y proporcionando mensajes claros ante errores o fallos inesperados.
+      </descripcion>
+    </disponibilidad>
+
+    <persistenciaDatos>
+      <descripcion>
+        La información se almacena en una base de datos estructurada y confiable,
+        garantizando integridad, consistencia y recuperación de datos.
+      </descripcion>
+    </persistenciaDatos>
+
+  </requerimientosNoFuncionales>
+
+</sistemaControlIncidenciasDocumentacion>

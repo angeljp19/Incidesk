@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    //  Estructura de Archivos
+    "rootDir": "./src",      // Código fuente TypeScript en la carpeta 'src'
+    "outDir": "./dist",      // Código JavaScript compilado irá a 'dist'
+
+    //  Entorno y Módulos
+    "target": "ES2020",      // Compilar a una versión moderna de JavaScript
+    "module": "CommonJS",    // Usar el sistema de módulos tradicional de Node (require/module.exports)
+    "lib": ["ES2020"],       // Incluir bibliotecas de tipos para ES2020
+    "esModuleInterop": true, // Permite importar módulos CommonJS usando la sintaxis 'import' (más limpio)
+
+    //  Opciones de Tipado Estricto (Recomendadas)
+    "strict": true,          // Habilita todas las opciones de verificación estricta
+    "skipLibCheck": true,    // Ignora la verificación de tipos en archivos de declaración (más rápido)
+
+    //  Otras Salidas (Desarrollo y Depuración)
+    "sourceMap": true,       // Genera mapas de origen para facilitar la depuración
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
