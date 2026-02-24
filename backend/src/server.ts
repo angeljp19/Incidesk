@@ -38,7 +38,7 @@ import { createServer } from "http";
 
 
 const corsOptions = {
-  origin: '*', 
+  origin: 'http://localhost:5173', 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 };
@@ -66,7 +66,7 @@ app.use("/reportes", reportesRouter)
 
 import "./sockets/index"
 
-sequelize.sync({ alter: true })
+sequelize.sync()
   .then(() => console.log("Modelos sincronizados"))
   .catch(console.error);
 server.listen(3000)
