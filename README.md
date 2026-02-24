@@ -11,16 +11,18 @@
 - [Solución](#solución)
 - [Roles y alcance](#roles-y-alcance)
 - [Funcionalidades](#funcionalidades)
+- [Flujo de datos](#flujo-de-datos)
 - [Arquitectura](#arquitectura)
 - [Stack técnico](#stack-técnico)
 - [Seguridad](#seguridad)
 - [Modelo de datos](#modelo-de-datos)
-- [Capturas / demo](#capturas--demo)
-- [Autor](#autor)
+- [Capturas / demo](#capturas)
+
 
 ---
 
 ## Resumen
+<a name="resumen"></a>
 Este proyecto implementa un sistema tipo **Helpdesk/ITSM** para centralizar la gestión de solicitudes TI dentro de una organización:
 - Registro formal de incidencias (tickets) por parte de usuarios internos.
 - Clasificación por **categoría**, **prioridad** y **estado**.
@@ -31,6 +33,7 @@ Este proyecto implementa un sistema tipo **Helpdesk/ITSM** para centralizar la g
 ---
 
 ## Problema
+<a name="problema"></a>
 En muchas organizaciones, las solicitudes TI se gestionan por canales informales (llamadas/correos/mensajería), lo que provoca:
 - Pérdida u olvido de requerimientos.
 - Falta de trazabilidad y estatus claro.
@@ -40,6 +43,7 @@ En muchas organizaciones, las solicitudes TI se gestionan por canales informales
 ---
 
 ## Solución
+<a name="solucion"></a>
 Una aplicación web con flujo completo de tickets:
 1. Usuario crea ticket (título, descripción, categoría, prioridad y adjuntos).
 2. Administrador supervisa, clasifica y asigna/reasigna.
@@ -49,6 +53,7 @@ Una aplicación web con flujo completo de tickets:
 ---
 
 ## Roles y alcance
+<a name="roles-y-alcance"></a>
 - **Administrador**: gobierno del sistema (usuarios, configuración, asignación, reportes).
 - **Técnico**: atención y resolución de tickets asignados.
 - **Usuario (solicitante)**: creación y seguimiento de sus solicitudes.
@@ -56,7 +61,7 @@ Una aplicación web con flujo completo de tickets:
 ---
 
 ## Funcionalidades
-
+<a name="funcionalidades"></a>
 ### Core (tickets)
 - Crear tickets con: título, descripción, categoría, prioridad y **archivos adjuntos**.
 - Estados: **activo / pendiente / finalizado**.
@@ -83,11 +88,13 @@ Una aplicación web con flujo completo de tickets:
 
 ---
 ## Flujo de Datos
+<a name="flujo-de-datos"></a>
 ![Flujo de Datos](assets/flujoDatos.png "Flujo de Datos")
 
 ---
 
 ## Arquitectura
+<a name="arquitectura"></a>
 Arquitectura **cliente–servidor de tres capas**:
 
 - **Cliente (SPA)**: React (UI por componentes).
@@ -103,6 +110,7 @@ Además:
 ---
 
 ## Stack técnico
+<a name="stack-técnico"></a>
 **Frontend**
 - React
 - TypeScript
@@ -125,6 +133,7 @@ Además:
 ---
 
 ## Seguridad
+<a name="seguridad"></a>
 - Autenticación con **token** (JWT) para validar solicitudes posteriores.
 - Autorización basada en **roles** (restricción de endpoints/acciones con middlewares).
 - Mitigación de **SQL Injection** mediante Sequelize (consultas parametrizadas).
@@ -135,6 +144,7 @@ Además:
 ---
 
 ## Modelo de datos
+<a name="modelo-de-datos"></a>
 Entidades principales (alto nivel):
 - Usuario, Rol, Departamento
 - Ticket, Categoría, Prioridad, Estado
@@ -147,5 +157,20 @@ Entidades principales (alto nivel):
 
 ---
 
-## Estructura del repositorio
-Monorepo con carpetas separadas:
+## Capturas
+<a name="capturas"></a>
+
+## Panel principal de administrador. Notificaciones, estadisticas y metricas utiles
+![dashboard](assets/dashboard.png "dashboard")
+
+
+## Modulo de comunicación en tiempo real (Chat online mediante websockets)
+![chat](assets/chat.png "chat")
+
+
+## Modulo de gestion de tickets para el administrador
+![gestionTickets](assets/gestionTickets.png "gestionTicket")
+
+
+## Atencion de incidencias por tecnicos asignados
+![seguimiento](assets/tecnicoSeguimiento.png "seguimiento")
