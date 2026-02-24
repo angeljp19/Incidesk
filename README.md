@@ -1,159 +1,152 @@
-# Sistema de Control y Seguimiento de Solicitudes TI (Helpdesk)
+# Incidesk — Sistema de Control y Seguimiento de Solicitudes TI (Helpdesk)
 
-**ES:** Plataforma web para registrar, priorizar y dar seguimiento a solicitudes de soporte TI, con roles, trazabilidad, reportes y mensajería interna.  
-**EN:** Web-based IT helpdesk/ticketing system with role-based access, traceability, reporting, and internal real-time messaging.
+Plataforma web para **registrar, priorizar y dar seguimiento a solicitudes de soporte TI** (tickets), con **roles**, **trazabilidad**, **dashboard de métricas**, **reportes PDF** y **mensajería en tiempo real**.
 
----
-
-## Tabla de contenidos
-- [Resumen](#resumen)
-- [Problema](#problema)
-- [Solución](#solución)
-- [Roles y alcance](#roles-y-alcance)
-- [Funcionalidades](#funcionalidades)
-- [Flujo de datos](#flujo-de-datos)
-- [Arquitectura](#arquitectura)
-- [Stack técnico](#stack-técnico)
-- [Seguridad](#seguridad)
-- [Modelo de datos](#modelo-de-datos)
-- [Capturas / demo](#capturas)
-
+> Proyecto académico (TSU en Informática) basado en un caso de uso real: centralizar y profesionalizar el flujo de incidencias TI en una organización.
 
 ---
 
-## Resumen
-<a name="resumen"></a>
-Este proyecto implementa un sistema tipo **Helpdesk/ITSM** para centralizar la gestión de solicitudes TI dentro de una organización:
-- Registro formal de incidencias (tickets) por parte de usuarios internos.
-- Clasificación por **categoría**, **prioridad** y **estado**.
-- Asignación y seguimiento por parte del equipo técnico.
-- **Mensajería interna en tiempo real** para coordinación operativa.
-- **Reportes y estadísticas** (incluye exportación a PDF).
+## Live demo (pendiente)
+
+- **Live Demo:**  
+- **Credenciales de prueba:**  
+- **GIF (flujo end-to-end):**  
 
 ---
 
-## Problema
-<a name="problema"></a>
-En muchas organizaciones, las solicitudes TI se gestionan por canales informales (llamadas/correos/mensajería), lo que provoca:
-- Pérdida u olvido de requerimientos.
-- Falta de trazabilidad y estatus claro.
-- Retrasos y duplicación de esfuerzo.
-- Ausencia de histórico y métricas para gestión.
+## Qué problema resuelve
+
+En muchas organizaciones, las solicitudes TI se gestionan por canales informales (llamadas, correos, mensajería), lo que genera:
+
+- Pérdida/olvido de requerimientos
+- Falta de estatus claro y trazabilidad
+- Retrasos, duplicación y mala priorización
+- Sin histórico ni métricas para gestión
+
+**Incidesk** centraliza el ciclo de vida del ticket: creación → asignación → atención → cierre → analítica.
 
 ---
 
-## Solución
-<a name="solucion"></a>
-Una aplicación web con flujo completo de tickets:
-1. Usuario crea ticket (título, descripción, categoría, prioridad y adjuntos).
-2. Administrador supervisa, clasifica y asigna/reasigna.
-3. Técnico atiende, registra avances (comentarios/notas internas), cambia estados y cierra.
-4. Administrador genera métricas y reportes (incluyendo PDF).
+## Qué construí (resumen técnico)
+
+- **Sistema de tickets** con categorías, prioridades y estados (activo/pendiente/finalizado).
+- **Roles y permisos**: Administrador / Técnico / Usuario.
+- **Dashboard** con métricas y visualizaciones (tendencias y distribución).
+- **Adjuntos** por ticket (evidencias, capturas, documentos).
+- **Mensajería privada en tiempo real** (Socket.IO) para coordinación operativa.
+- **Notificaciones** dentro del sistema.
+- **Reportes PDF** exportables (PDFKit).
+- **API REST** + PostgreSQL (Neon) + ORM (Sequelize).
 
 ---
 
 ## Roles y alcance
-<a name="roles-y-alcance"></a>
-- **Administrador**: gobierno del sistema (usuarios, configuración, asignación, reportes).
-- **Técnico**: atención y resolución de tickets asignados.
-- **Usuario (solicitante)**: creación y seguimiento de sus solicitudes.
+
+- **Administrador**
+  - Gestión total del sistema: usuarios, roles, departamentos, categorías.
+  - Supervisión global de tickets: asignación/reasignación, cambios de estado, reportes.
+
+- **Técnico**
+  - Bandeja de tickets asignados.
+  - Registro de avances, comentarios y cierre con solución final.
+  - Notas internas (no visibles al usuario final).
+
+- **Usuario (solicitante)**
+  - Crear tickets y adjuntar evidencia.
+  - Consultar estado e historial de sus solicitudes.
 
 ---
 
 ## Funcionalidades
-<a name="funcionalidades"></a>
-### Core (tickets)
-- Crear tickets con: título, descripción, categoría, prioridad y **archivos adjuntos**.
+
+### Tickets (core)
+- Crear ticket con: título, descripción, categoría, prioridad y adjuntos.
 - Estados: **activo / pendiente / finalizado**.
-- Historial de acciones (creación, actualizaciones, cierre) para trazabilidad.
+- Historial del ticket para trazabilidad.
 - Comentarios:
-  - Comentarios visibles al solicitante.
-  - **Notas internas** exclusivas del equipo técnico.
+  - Comentarios visibles al solicitante
+  - **Notas internas** (solo técnicos/administración)
 
 ### Administración
-- Gestión de usuarios: crear/editar/activar/desactivar, asignación de rol y departamento.
-- Gestión global de tickets: ver todos, asignar/reasignar, cambiar estado.
-- Configuración: administración de **departamentos** y **categorías**.
-
-### Técnico
-- Bandeja de tickets asignados.
-- Actualización de estado, registro de observaciones técnicas, cierre con solución final.
+- CRUD de usuarios + activación/desactivación.
+- Gestión de departamentos y categorías.
+- Gestión global de tickets (asignación/reasignación y cambios masivos de estado).
 
 ### Reportes y analítica
-- Estadísticas para toma de decisiones (carga por técnico, distribución por categoría/departamento, etc.).
-- Exportación de reportes en **PDF**.
+- Dashboard con métricas operativas (por estado/prioridad/categoría, etc.).
+- Exportación de reportes a **PDF**.
 
-### Comunicación interna
-- Mensajería privada en tiempo real (principalmente entre **administradores y técnicos**).
-
----
-## Flujo de Datos
-<a name="flujo-de-datos"></a>
-![Flujo de Datos](assets/flujoDatos.png "Flujo de Datos")
+### Comunicación en tiempo real
+- Chat privado para coordinación (Socket.IO).
 
 ---
 
 ## Arquitectura
-<a name="arquitectura"></a>
-Arquitectura **cliente–servidor de tres capas**:
 
-- **Cliente (SPA)**: React (UI por componentes).
-- **Servidor (API REST)**: Node.js + Express (lógica de negocio, validaciones, middlewares).
-- **Datos**: PostgreSQL (Neon) + Sequelize (ORM).
+Arquitectura **cliente–servidor** en 3 capas:
 
-![Arquitectura Cliente Servidor Modelo 3 Capas](assets/arquitectura.png "Arquitectura Cliente Servidor Modelo 3 Capas")
+- **Frontend (SPA):** React + TypeScript + Tailwind
+- **Backend (API REST):** Node.js + Express + TypeScript
+- **Persistencia:** PostgreSQL (Neon) + Sequelize (ORM)
+- **Tiempo real:** Socket.IO
 
-Además:
-- Módulo de **tiempo real** con Socket.IO para mensajería.
-- Comunicación entre capas vía **HTTPS**.
+### Diagrama de flujo de datos
+![Flujo de Datos](assets/flujoDatos.png)
 
----
-
-## Stack técnico
-<a name="stack-técnico"></a>
-**Frontend**
-- React
-- TypeScript
-- TailwindCSS
-
-**Backend**
-- Node.js
-- Express.js
-- Sequelize (ORM)
-
-**Base de datos**
-- PostgreSQL (Neon)
-
-**Tiempo real**
-- Socket.IO
-
-**Reportes**
-- PDFKit (exportación a PDF)
-
----
-
-## Seguridad
-<a name="seguridad"></a>
-- Autenticación con **token** (JWT) para validar solicitudes posteriores.
-- Autorización basada en **roles** (restricción de endpoints/acciones con middlewares).
-- Mitigación de **SQL Injection** mediante Sequelize (consultas parametrizadas).
-- Mitigación de **XSS** en UI usando el escape automático de React.
-- Menor superficie de **CSRF** al usar tokens en headers (en lugar de cookies de sesión tradicionales).
-- Manejo controlado de errores (códigos HTTP adecuados sin exponer detalles internos).
+### Arquitectura (3 capas)
+![Arquitectura Cliente–Servidor](assets/arquitectura.png)
 
 ---
 
 ## Modelo de datos
-<a name="modelo-de-datos"></a>
+
 Entidades principales (alto nivel):
-- Usuario, Rol, Departamento
-- Ticket, Categoría, Prioridad, Estado
-- Comentarios, Archivos adjuntos
-- Notificaciones / Tipos de notificación
-- Conversaciones, Participantes, Mensajes (mensajería interna)
 
-![Diagrama Entidad Relacion](assets/entidadRelacion.png "Diagrama Entidad Relacion")
+- Usuarios, Roles, Permisos
+- Departamentos
+- Tickets, Categorías, Prioridades, Estados
+- Comentarios (incluye notas internas)
+- Archivos adjuntos
+- Notificaciones
+- Conversaciones, Participantes, Mensajes (chat)
 
+### Diagrama ER
+![Diagrama Entidad–Relación](assets/entidadRelacion.png)
+
+---
+
+## Stack técnico
+
+### Frontend
+- React + Vite
+- TypeScript
+- TailwindCSS
+- UI/Componentes: MUI, Flowbite (según módulos)
+- Gráficas: Chart.js / React-Chartjs-2 / MUI X-Charts
+- Realtime: Socket.IO client
+
+### Backend
+- Node.js + Express
+- TypeScript
+- ORM: Sequelize
+- DB: PostgreSQL (Neon)
+- Auth: JWT
+- Hash de contraseñas: bcrypt
+- Validación: Joi
+- Uploads: Multer
+- Reportes: PDFKit
+- Realtime: Socket.IO
+- Config: dotenv
+
+---
+
+## Seguridad (resumen)
+
+- Autenticación con **JWT**
+- Autorización por **roles/permisos** (middlewares)
+- Mitigación de SQLi con Sequelize (consultas parametrizadas)
+- Mitigación de XSS en UI por escape automático de React
+- Manejo controlado de errores (sin filtrar datos internos)
 
 ---
 
