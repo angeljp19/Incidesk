@@ -2,7 +2,7 @@
 
 Plataforma web para **registrar, priorizar y dar seguimiento a solicitudes de soporte TI** (tickets), con **roles**, **trazabilidad**, **dashboard de métricas**, **reportes PDF** y **mensajería en tiempo real**.
 
-> Proyecto académico (TSU en Informática) basado en un caso de uso real: centralizar y profesionalizar el flujo de incidencias TI en una organización.
+> Proyecto basado en centralizar y profesionalizar el flujo de incidencias TI en una organización.
 
 ---
 
