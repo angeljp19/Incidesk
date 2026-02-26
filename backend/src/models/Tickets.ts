@@ -6,6 +6,9 @@ import Usuario from "./Usuario";
 import CategoriaTicket from "./CategoriaTicket";
 import EstadoTicket from "./EstadoTicket";
 import PrioridadTicket from "./PrioridadesTickets"
+import Departamento from "./Departamento";
+import type { InferAttributes, InferCreationAttributes, CreationOptional } from "sequelize";
+
 
 class Ticket extends Model {
   public id!: number;
@@ -25,6 +28,13 @@ class Ticket extends Model {
 
   public solucion_final!: string | null;
   public calificacion!: string | null;
+
+  declare solicitante?: Usuario & { Departamento?: Departamento };
+  declare tecnicoAsignado?: Usuario;
+
+  declare CategoriaTicket?: CategoriaTicket;
+  declare PrioridadTicket?: PrioridadTicket;
+  declare EstadoTicket?: EstadoTicket;
 }
 
 Ticket.init(

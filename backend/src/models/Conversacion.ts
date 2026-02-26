@@ -1,10 +1,15 @@
 import { Model, DataTypes } from "sequelize";
 import { sequelize } from "./database";
+import Mensaje from "./Mensaje";
+import ConversacionParticipante from "./ConversacionParticipante";
 
 class Conversacion extends Model {
   public id!: number;
   public tipo!: "privada" | "grupo";
   public created_at!: Date;
+
+  declare participantes?: ConversacionParticipante[];
+  declare mensajes?: Mensaje[];
 
   static associate(models: any) {
     Conversacion.hasMany(models.ConversacionParticipante, {

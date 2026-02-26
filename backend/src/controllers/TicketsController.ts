@@ -148,7 +148,7 @@ class TicketController {
       });
 
       const userSolicitante = await Usuario.findByPk(solicitante_id, {
-        include: { model: Departamento, attributes: ["nombre"] },
+        include: { model: Departamento, attributes: ["nombre"], as: "Departamento" },
       });
 
       await Notificaciones.create({
@@ -157,7 +157,7 @@ class TicketController {
         entidad_id: ticket.id,
         receptor_id: tecnico_asignado_id,
         hexColor: "#007916ff",
-        info: `El usuario "${userSolicitante?.nombre} ${userSolicitante?.apellido}" del departamento de "${userSolicitante?.Departamento.nombre}"
+        info: `El usuario "${userSolicitante?.nombre} ${userSolicitante?.apellido}" del departamento de "${userSolicitante?.Departamento?.nombre ?? "Sin departamento"}"
         ha creado un ticket con el titulo "${titulo}"`,
       });
 
@@ -209,7 +209,7 @@ class TicketController {
 
       // Datos auxiliares para las notificaciones
       const solicitante = await Usuario.findByPk(ticket.solicitante_id, {
-        include: { model: Departamento, attributes: ["nombre"] },
+        include: { model: Departamento, attributes: ["nombre"], as: "Departamento" },
       });
 
       const nuevoTecnico = tecnico_asignado_id
@@ -245,7 +245,7 @@ class TicketController {
           hexColor: "#002079ff",
           info: `Asignado el ticket #${ticket.id} "${ticket.titulo}", 
 creado por ${solicitante?.nombre} ${solicitante?.apellido} 
-del departamento "${solicitante?.Departamento.nombre}".`,
+del departamento "${solicitante?.Departamento?.nombre ?? "Sin departamento"}".`,
         });
       }
 

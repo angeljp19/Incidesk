@@ -42,7 +42,7 @@ class ConversationService {
 
       // Verificar si alguna tiene exactamente 2 participantes
       const existingConversation = conversaciones.find(
-        (conv) => conv.participantes.length === 2
+        (conv) => conv.participantes?.length === 2
       );
 
       if (existingConversation) {

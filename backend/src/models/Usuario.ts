@@ -14,6 +14,8 @@ class Usuario extends Model {
   public activo!: boolean;
   public fecha_creacion!: Date;
   public ultima_sesion!: Date | null;
+
+  declare Departamento?: Departamento;
 }
 
 Usuario.init(
@@ -34,6 +36,5 @@ Usuario.init(
 
 // Relaciones
 Usuario.belongsTo(Rol, { foreignKey: "rol_id" });
-Usuario.belongsTo(Departamento, { foreignKey: "departamento_id" });
-
+Usuario.belongsTo(Departamento, { foreignKey: "departamento_id", as: "Departamento" });
 export default Usuario;
