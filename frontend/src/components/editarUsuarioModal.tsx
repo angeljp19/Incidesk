@@ -8,8 +8,8 @@ import {
   Button,
 } from "flowbite-react";
 
-import { useRef, useState } from "react";
-import UsuarioApi from "../api/usuarios";
+import { useRef} from "react";
+
 
 interface ComponentProps {
   openModalProp: boolean;
@@ -36,26 +36,9 @@ export function EditarUsuarioModal(componentProps: ComponentProps) {
   const { openModalProp, setOpenModal, user, departamentos, roles } =
     componentProps;
   const nombreInputRef = useRef<HTMLInputElement>(null);
-  const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleEditar = async () => {
-    try {
-      await UsuarioApi.put(
-        user.id,
-        user.nombre,
-        user.apellido,
-        user.email,
-        user.departamento,
-        user.rol
-      );
 
-      window.location.reload();
-    } catch (err) {
-      setErrorMessage((err as Error).message);
-      setError(true);
-    }
-  };
+
 
   return (
     <div className="">

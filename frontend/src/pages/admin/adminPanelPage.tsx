@@ -7,7 +7,7 @@ import { BarChart } from "@mui/x-charts/BarChart";
 import TicketAPI from "../../api/tickets";
 import CategoriaTicketAPI from "../../api/categoria";
 import PrioridadesTicketAPI from "../../api/prioridades";
-import EstadoTicketAPI from "../../api/estados";
+
 
 import { CajaNotificaciones } from "../../components/cajaNotificaciones";
 
@@ -20,7 +20,6 @@ export function AdminPanelPage() {
   const [tickets, setTickets] = useState<any[]>([]);
   const [categoriasAPI, setCategoriasAPI] = useState<any[]>([]);
   const [prioridadesAPI, setPrioridadesAPI] = useState<any[]>([]);
-  const [estadosAPI, setEstadosAPI] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,7 +30,6 @@ export function AdminPanelPage() {
 
         setCategoriasAPI(await CategoriaTicketAPI.getAll());
         setPrioridadesAPI(await PrioridadesTicketAPI.getAll());
-        setEstadosAPI(await EstadoTicketAPI.getAll());
       } catch (error) {
         console.error(error);
       } finally {
@@ -173,7 +171,7 @@ export function AdminPanelPage() {
                     cy: 115,
                   },
                 ]}
-                slotProps={{ legend: { hidden: true } }}
+             
               />
               <Legend labels={categorias} />
             </CardUI>
@@ -198,7 +196,7 @@ export function AdminPanelPage() {
                     cy: 115,
                   },
                 ]}
-                slotProps={{ legend: { hidden: true } }}
+               
               />
               <Legend labels={prioridades} />
             </CardUI>

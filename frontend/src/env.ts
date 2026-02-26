@@ -1,3 +1,3 @@
 export const env = {
-    BACK_URL: "http://localhost:3000"
+    BACK_URL: import.meta.env.VITE_BACK_URL,
 }

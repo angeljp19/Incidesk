@@ -12,7 +12,6 @@ import {
   ModalHeader,
 } from "flowbite-react";
 import UsuarioApi from "../../api/usuarios";
-import RolesAPI from "../../api/roles";
 import TicketAPI from "../../api/tickets";
 import { useNavigate } from "react-router-dom";
 
@@ -45,7 +44,6 @@ export function GestionPersonalTIPage() {
   const [administradores, setAdministradores] = useState<Usuario[]>([]);
   const [tecnicos, setTecnicos] = useState<Usuario[]>([]);
   const [tickets, setTickets] = useState<any[]>([]);
-  const [roles, setRoles] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
@@ -59,9 +57,6 @@ export function GestionPersonalTIPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const rolesDB = await RolesAPI.getAll();
-        setRoles(rolesDB);
-
         const usuariosDB = await UsuarioApi.getAll();
 
         const admins = usuariosDB.filter(

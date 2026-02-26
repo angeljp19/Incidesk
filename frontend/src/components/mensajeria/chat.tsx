@@ -1,4 +1,4 @@
-import { SlOptionsVertical } from "react-icons/sl";
+
 import { LuSend, LuMessageSquare } from "react-icons/lu";
 import { IoTicketOutline } from "react-icons/io5";
 

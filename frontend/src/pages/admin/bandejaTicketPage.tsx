@@ -1,5 +1,5 @@
 import { TextInput } from "flowbite-react";
-import { useSearchParams, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { PageHeader } from "../../components/pageHeader";
 import { CardsGridTickets } from "../../components/cardsGridTickets";
@@ -24,7 +24,7 @@ interface Ticket {
 }
 
 export function BandejaTicketPage() {
-  const [searchParams] = useSearchParams();
+
   const [search, setSearch] = useState("");
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [loading, setLoading] = useState(true);

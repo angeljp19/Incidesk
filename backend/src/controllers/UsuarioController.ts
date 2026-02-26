@@ -24,6 +24,7 @@ class UsuarioController {
           {
             model: Departamento,
             attributes: ["nombre"],
+            as: "Departamento"
           },
           {
             model: Rol,

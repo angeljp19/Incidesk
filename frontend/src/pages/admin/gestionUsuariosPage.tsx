@@ -14,7 +14,7 @@ import {
   ModalHeader,
 } from "flowbite-react";
 
-import { HiUser, HiPlus, HiPencilAlt, HiTrash } from "react-icons/hi";
+import { HiPlus, HiPencilAlt, HiTrash } from "react-icons/hi";
 import UsuarioApi from "../../api/usuarios";
 import DepartamentosAPI from "../../api/departamentos";
 import RolesAPI from "../../api/roles";
@@ -219,7 +219,7 @@ export function GestionUsuariosPage() {
             />
 
             {/* DRAWER */}
-            <div className="fixed top-0 right-0 z-50 h-full w-full max-w-lg flex flex-col shadow-2xl bg-gradient-to-b from-blue-800 to-blue-900 animate-slide-in">
+            <div className="fixed top-0 right-0 z-50 h-full w-full max-w-lg flex flex-col shadow-2xl bg-linear-to-b from-blue-800 to-blue-900 animate-slide-in">
               {/* HEADER */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
                 <div className="flex flex-col">

@@ -1,8 +1,5 @@
 import {
   Label,
-  Modal,
-  ModalBody,
-  ModalHeader,
   TextInput,
   Textarea,
   Select,

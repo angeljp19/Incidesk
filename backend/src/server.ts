@@ -35,10 +35,10 @@ import reportesRouter from "./routes/reportes"
 import {Server} from "socket.io"
 import { createServer } from "http";
 
-
+console.log("CORS Origin:", process.env.URL_ORIGIN); // Verificar el valor de URL_ORIGIN
 
 const corsOptions = {
-  origin: 'http://localhost:5173', 
+  origin: process.env.URL_ORIGIN, 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 };
@@ -69,4 +69,4 @@ import "./sockets/index"
 sequelize.sync()
   .then(() => console.log("Modelos sincronizados"))
   .catch(console.error);
-server.listen(3000)
+server.listen(process.env.PORT)

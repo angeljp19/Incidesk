@@ -35,11 +35,11 @@ export function AgregarUsuarioModal(componentProps: ComponentProps) {
   const [departamento_id, setDepartamento_id] = useState<number | null>(null);
   const [rol_id, setRol_id] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+  
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    setError(false);
+ 
     setIsLoading(true);
     try {
       const res = await UsuarioApi.post(
@@ -56,7 +56,6 @@ export function AgregarUsuarioModal(componentProps: ComponentProps) {
       console.log(res);
     } catch (err) {
       console.error("Error de autenticación:", err);
-      setError(true);
     } finally {
       setIsLoading(false);
     }

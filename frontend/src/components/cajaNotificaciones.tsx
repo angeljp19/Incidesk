@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { FaRegBell } from "react-icons/fa";
 import { CiCircleAlert } from "react-icons/ci";
 import NotificacionesAPI from "../api/notificaciones";
