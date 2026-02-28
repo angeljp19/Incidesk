@@ -147,7 +147,7 @@ export function Chat({
               className="flex items-center gap-2 bg-gray-200 rounded-xl px-3 py-2 md:p-4"
             >
               <input
-                className="flex-1 resize-none bg-transparent outline-none text-sm md:text-base"
+                className="flex-1 resize-none bg-transparent outline-none text-md lg:text-sm md:text-base"
                 placeholder="Escribe un mensaje…"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -158,11 +158,11 @@ export function Chat({
                 onClick={() => setShowTickets(true)}
                 className="text-gray-600"
               >
-                <IoTicketOutline size={18} className="md:size-6" />
+                <IoTicketOutline size={24} className="md:size-6" />
               </button>
 
               <button type="submit" className="text-blue-600">
-                <LuSend size={18} className="md:size-6" />
+                <LuSend size={24} className="md:size-6" />
               </button>
             </form>
           </div>

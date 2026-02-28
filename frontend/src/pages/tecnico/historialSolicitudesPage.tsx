@@ -76,8 +76,8 @@ export function HistorialSolicitudesPage() {
   if (loading) return <IncideskSkeleton />
 
   return (
-    <div className="flex flex-col w-full h-full space-y-5 p-4 g:p-10">
-      <div className="flex flex-col md:flex-row w-full justify-between gap-5 items-center">
+    <div className="flex flex-col w-full h-full space-y-5 lg:p-10">
+      <div className="hidden lg:flex flex-col md:flex-row w-full justify-between gap-5 items-center">
         <PageHeader
           title="Historial de solicitudes"
           subtitle="Registro historico de todas tus solicutes asignadas"

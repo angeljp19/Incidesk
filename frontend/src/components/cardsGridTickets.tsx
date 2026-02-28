@@ -31,7 +31,7 @@ interface gridPros {
 export function CardsGridTickets({filteredTickets, path}: gridPros) {
 
     return(
-              <div className="overflow-auto  grid grid-cols-1 items-start lg:grid-cols-2 gap-4">
+              <div className="overflow-auto  grid grid-cols-1 items-start lg:grid-cols-2 gap-1 lg:gap-4">
         {filteredTickets.map((ticket) => (
           <Link
             to={`${path}${ticket.id}`}
@@ -44,7 +44,7 @@ export function CardsGridTickets({filteredTickets, path}: gridPros) {
                 {/* Color + Título */}
                 <div className="flex items-center space-x-3">
                   <div
-                    className="size-4 rounded-full"
+                    className="w-4 h-4 shrink-0 rounded-full"
                     style={{
                       backgroundColor:
                         coloresFiltros[

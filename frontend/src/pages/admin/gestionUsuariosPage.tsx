@@ -8,11 +8,8 @@ import {
   TableHead,
   TableHeadCell,
   TableRow,
-  Modal,
-  ModalFooter,
-  ModalBody,
-  ModalHeader,
 } from "flowbite-react";
+import { CenteredModal } from "../../components/CenteredModal";
 
 import { HiPlus, HiPencilAlt, HiTrash } from "react-icons/hi";
 import UsuarioApi from "../../api/usuarios";
@@ -109,7 +106,7 @@ export function GestionUsuariosPage() {
           form.email,
           form.password,
           form.departamento_id,
-          form.rol_id
+          form.rol_id,
         );
       } else if (drawerMode === "edit") {
         await UsuarioApi.put(
@@ -119,7 +116,7 @@ export function GestionUsuariosPage() {
           form.email,
           undefined,
           form.rol_id,
-          form.departamento_id
+          form.departamento_id,
         );
       }
       window.location.reload();
@@ -275,56 +272,59 @@ export function GestionUsuariosPage() {
       </div>
 
       {/* MODAL MOBILE */}
-      <Modal
+      <CenteredModal
         show={drawerOpen}
-        size="full"
         onClose={closeDrawer}
-        className="md:hidden "
+        className="md:hidden"
       >
-        <div className="p-4 flex justify-between bg-blue-700 text-white">
-          <h3 className="text-lg font-semibold mr-5">
-            {drawerMode === "add" ? "Agregar Usuario" : "Editar Usuario"}
-          </h3>
-          <button onClick={closeDrawer}>✕</button>
+        <div className="w-full max-w-md bg-white rounded-2xl overflow-hidden">
+          <div className="p-4 flex justify-between bg-blue-700 text-white">
+            <h3 className="text-lg font-semibold mr-5">
+              {drawerMode === "add" ? "Agregar Usuario" : "Editar Usuario"}
+            </h3>
+            <button onClick={closeDrawer}>✕</button>
+          </div>
+
+          <div className="bg-blue-700 border-0">
+            <UsuarioForm
+              form={form}
+              setForm={setForm}
+              roles={roles}
+              departamentos={departamentos}
+              drawerMode={drawerMode}
+            />
+          </div>
+
+          <div className="bg-blue-700 border-0 flex justify-end gap-3 p-4">
+            <Button color="gray" onClick={closeDrawer}>
+              Cancelar
+            </Button>
+            <Button onClick={handleSubmit}>Guardar</Button>
+          </div>
         </div>
-
-        <ModalBody className="bg-blue-700 border-0">
-          <UsuarioForm
-            form={form}
-            setForm={setForm}
-            roles={roles}
-            departamentos={departamentos}
-            drawerMode={drawerMode}
-          />
-        </ModalBody>
-
-        <ModalFooter className="bg-blue-700 border-0">
-          <Button color="gray" onClick={closeDrawer}>
-            Cancelar
-          </Button>
-          <Button onClick={handleSubmit}>Guardar</Button>
-        </ModalFooter>
-      </Modal>
+      </CenteredModal>
 
       {/* MODAL ELIMINAR */}
-      <Modal show={openEliminar} onClose={() => setOpenEliminar(false)}>
-        <ModalHeader>Eliminar Usuario</ModalHeader>
-        <ModalBody>
-          ¿Deseas eliminar a{" "}
-          <strong>
-            {selected?.nombre} {selected?.apellido}
-          </strong>
-          ?
-        </ModalBody>
-        <ModalFooter>
-          <Button color="failure" onClick={() => handleEliminar()}>
-            Eliminar
-          </Button>
-          <Button color="gray" onClick={() => setOpenEliminar(false)}>
-            Cancelar
-          </Button>
-        </ModalFooter>
-      </Modal>
+      <CenteredModal show={openEliminar} onClose={() => setOpenEliminar(false)}>
+        <div className="bg-white rounded-xl shadow-lg w-full max-w-md p-6">
+          <h3 className="text-lg font-semibold mb-4">Eliminar Usuario</h3>
+          <p className="mb-6">
+            ¿Deseas eliminar a{" "}
+            <strong>
+              {selected?.nombre} {selected?.apellido}
+            </strong>
+            ?
+          </p>
+          <div className="flex justify-end gap-3">
+            <Button color="failure" onClick={() => handleEliminar()}>
+              Eliminar
+            </Button>
+            <Button color="gray" onClick={() => setOpenEliminar(false)}>
+              Cancelar
+            </Button>
+          </div>
+        </div>
+      </CenteredModal>
 
       <ErrorModal
         mensaje={errorMessage}

@@ -29,7 +29,7 @@ export const ColorCard = ({ titulo, valor, color, link }: Props) => {
 
       {/* Indicador */}
       <div
-        className="w-3 h-10 rounded-full"
+        className="w-3 h-10 shrink-0 rounded-full"
         style={{ backgroundColor: color }}
       />
     </Link>

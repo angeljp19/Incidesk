@@ -147,10 +147,10 @@ export function TicketPage() {
 
   return (
     <div className="flex flex-col lg:flex-row w-full h-full space-x-6 gap-5 lg:gap-0 p-4 lg:p-8">
-      <div className="w-full lg:w-1/2 lg:h-full lg:overflow-auto rounded-2xl no-scrollbar">
-        <div className="bg-white rounded-2xl shadow-lg p-6 space-y-6">
+      <div className="w-full lg:w-1/2 h-full overflow-auto rounded-2xl no-scrollbar">
+        <div className="bg-white rounded-2xl shadow-lg p-6 space-y-6 h-full overflow-y-auto">
           {/* HEADER */}
-          <div className="border-b pb-4 flex justify-between">
+          <div className="border-b pb-4 flex justify-between items-center">
             <div className="flex flex-col">
               <h3 className="text-xl font-semibold text-blue-700">
                 Modificar Ticket
@@ -161,7 +161,7 @@ export function TicketPage() {
             </div>
 
             <button
-              className="bg-blue-700 text-white font-semibold rounded-full p-2 text-xs"
+              className="bg-blue-700 text-white font-semibold h-fit rounded-full p-2 text-xs"
               onClick={() => setImagenAbierta(!imagenAbierta)}
             >
               Ver imagen
@@ -340,7 +340,7 @@ export function TicketPage() {
         </div>
       </div>
 
-      <div className="bg-white shadow-lg rounded-2xl p-6 flex flex-col w-full lg:w-1/2 max-h-screen h-full">
+      <div className="bg-white shadow-lg rounded-2xl p-6 flex flex-col w-full lg:w-1/2 h-full overflow-auto">
         <h2 className="text-xl font-semibold text-blue-700 mb-4">
           Seguimiento del Ticket
         </h2>

@@ -80,7 +80,7 @@ export async function generarReporte(req: Request, res: Response) {
           model: Usuario,
           as: "solicitante",
           where: whereSolicitante,
-          include: [{ model: Departamento }],
+          include: [{ model: Departamento, as: "Departamento" }],
         },
         {
           model: Usuario,

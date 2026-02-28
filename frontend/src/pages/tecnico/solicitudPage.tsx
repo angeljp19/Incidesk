@@ -80,7 +80,7 @@ export function SolicitudPage() {
   if (!ticket) return <IncideskSkeleton />
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 p-5 w-full h-full overflow-auto">
+    <div className="flex flex-col md:flex-row gap-6 lg:p-5 w-full h-full overflow-auto">
       {/* PANEL IZQUIERDO — INFORMACIÓN DEL TICKET */}
       <div className="bg-white flex flex-col shadow-lg rounded-2xl p-6 space-y-6 lg:overflow-auto no-scrollbar w-full lg:w-1/3">
         {/* HEADER */}

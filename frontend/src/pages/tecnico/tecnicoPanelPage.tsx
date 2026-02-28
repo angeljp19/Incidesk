@@ -18,10 +18,10 @@ export function TecnicoPanelPage() {
 
 
   return (
-    <div className="flex w-full h-full flex-col text-[#133463] pt-5 px-5  space-y-5 items-center overflow-auto">
-      <div className="flex flex-col lg:flex-row w-full h-full gap-5">
-        <div className="flex flex-col bg-gray-100 h-full w-full lg:w-2/3 p-4 lg:p-10 rounded-2xl lg:rounded-t-2xl gap-5">
-          <div className="relative flex w-full h-48 bg-blue-700 rounded-2xl shadow-xl overflow-visible">
+    <div className="flex w-full h-full flex-col text-[#133463] pt-5 lg:px-5  space-y-5 items-center overflow-auto">
+      <div className="flex flex-col lg:flex-row w-full lg:h-full gap-5">
+        <div className="flex flex-col bg-gray-100 h-full w-full lg:w-2/3 p-4 lg:p-10 rounded-2xl lg:rounded-t-2xl gap-5 ">
+          <div className="relative flex w-full h-48 bg-blue-700 rounded-2xl shadow-xl ">
             <div className="flex flex-col w-full p-6 gap-2">
               <MensajeBienvenida nombre={userObj.nombre} color="#ffffff" />
 
@@ -95,6 +95,7 @@ export function TecnicoPanelPage() {
               </Link>
             </CardUI>
           </div>
+         
         </div>
         <div className="flex max-h-[50svh] lg:max-h-screen lg:h-full w-full lg:w-1/3 justify-center">
 
@@ -108,7 +109,7 @@ export function TecnicoPanelPage() {
 
 function CardUI({ children }: any) {
   return (
-    <div className="bg-gray-50 rounded-3xl shadow-xl flex flex-col items-center transition-all duration-100 hover:bg-gray-100">
+    <div className="w-full bg-gray-50 rounded-3xl shadow-xl flex flex-col items-center transition-all duration-100 hover:bg-gray-100">
       {children}
     </div>
   );

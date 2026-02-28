@@ -13,7 +13,7 @@ export function UserPanelPage() {
   const userObj = JSON.parse(user as string);
 
   return (
-    <div className="flex w-full h-full flex-col text-[#133463] pt-5 px-5  space-y-5 items-center ">
+    <div className="flex w-full h-full flex-col text-[#133463] pt-5 lg:px-5  space-y-5 items-center ">
       <div className="flex flex-col lg:flex-row w-full h-full gap-5">
         <div className="flex flex-col bg-gray-100 lg:h-full w-full lg:w-2/3 p-4 lg:p-10 rounded-2xl lg:rounded-t-2xl gap-5">
           <div className="relative flex w-full h-48 bg-blue-700 rounded-2xl shadow-xl overflow-visible">

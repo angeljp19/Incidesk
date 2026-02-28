@@ -39,7 +39,7 @@ export function PerfilPreferenciasPage() {
         undefined,
         undefined,
         email,
-        password
+        password,
       );
 
       // Actualizar datos en sessionStorage
@@ -52,7 +52,7 @@ export function PerfilPreferenciasPage() {
   };
 
   return (
-    <div className="w-full flex justify-center px-4 py-10">
+    <div className="w-full flex justify-center lg:px-4 lg:py-10 ">
       <div className="w-full flex flex-col gap-2 max-w-5xl ">
         {/* HEADER */}
 
@@ -63,7 +63,10 @@ export function PerfilPreferenciasPage() {
         {/* FORM */}
         <form
           onSubmit={handleSubmit}
-          className="px-8 py-6 grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white rounded-2xl shadow-xl"
+          className="px-8 py-6 grid grid-cols-1 lg:grid-cols-2 gap-6
+    bg-white rounded-2xl shadow-xl overflow-hidden
+    max-h-[75svh] overflow-y-auto
+    lg:max-h-none lg:overflow-visible"
         >
           {/* Nombre */}
           <div className="flex flex-col gap-1">
@@ -130,7 +133,7 @@ export function PerfilPreferenciasPage() {
           </div>
 
           {/* BOTÓN */}
-          <div className="lg:col-span-2 flex justify-end pt-4">
+          <div className="lg:col-span-2 flex justify-center lg:justify-end pt-4">
             <Button
               type="submit"
               disabled={loading}

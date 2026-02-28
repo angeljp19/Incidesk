@@ -138,7 +138,7 @@ export function GestionPersonalTIPage() {
   if (loading) return <IncideskSkeleton />;
 
   return (
-    <div className="flex w-full h-full flex-col space-y-10 overflow-auto no-scrollbar">
+    <div className="flex w-full h-full flex-col space-y-10 overflow-auto no-scrollbar p-4">
       <PageHeader
         title="Gestión del Personal TI"
         subtitle="Conoce al equipo de técnicos y administradores"

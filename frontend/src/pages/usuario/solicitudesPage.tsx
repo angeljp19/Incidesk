@@ -60,8 +60,8 @@ export function SolicitudesPage() {
   if (loading) return <IncideskSkeleton />;
 
   return (
-    <div className="flex flex-col w-full h-full space-y-5 p-4 lg:p-10">
-      <div className="flex flex-col md:flex-row w-full justify-between gap-5 items-center">
+    <div className="flex flex-col w-full h-full space-y-5 lg:p-10">
+      <div className="hidden lg:flex flex-col md:flex-row w-full justify-between gap-5 items-center">
         <PageHeader
           title="Mis Solicitudes"
           subtitle="Registro de todas las solicitudes que has hecho al equipo de tecnología"

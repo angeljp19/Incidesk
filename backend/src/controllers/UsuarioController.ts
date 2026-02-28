@@ -24,7 +24,7 @@ class UsuarioController {
           {
             model: Departamento,
             attributes: ["nombre"],
-            as: "Departamento"
+            as: "Departamento",
           },
           {
             model: Rol,
@@ -136,11 +136,13 @@ class UsuarioController {
         return res.status(404).json({ message: "Usuario no encontrado" });
       }
 
-      const existedUser = await Usuario.findOne({ where: { email } });
-      if (existedUser) {
-        return res
-          .status(409)
-          .json({ message: "Ya existe un usuario con ese email" });
+      if (email) {
+        const existedUser = await Usuario.findOne({ where: { email } });
+        if (existedUser) {
+          return res
+            .status(409)
+            .json({ message: "Ya existe un usuario con ese email" });
+        }
       }
 
       usuario.nombre = nombre ?? usuario.nombre;

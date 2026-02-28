@@ -74,7 +74,7 @@ export function SolicitudesActualesPage() {
 
   return (
     <div className="flex flex-col w-full h-full space-y-5 p-4 lg:p-10">
-      <div className="flex flex-col md:flex-row w-full justify-between space-y-5">
+      <div className="hidden lg:flex flex-col md:flex-row w-full justify-between space-y-5">
         <PageHeader
           title="Solicitudes Actuales"
           subtitle="Solicitudes activas asignadas"
