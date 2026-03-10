@@ -2,17 +2,16 @@ import { Navbar, Popover } from "flowbite-react";
 import type { ReactNode } from "react";
 import { HiUser, HiCog } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
-import logo3n from "../assets/3nlogo.png"
 
 
 interface NavPro {
-  children: ReactNode
+  children: ReactNode;
 }
 
-export function Nav({children} : NavPro) {
+export function Nav({ children }: NavPro) {
   const user = sessionStorage.getItem("user");
   const userObj = JSON.parse(user as string);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const popoverContent = (
     <div className="w-64 p-3">
@@ -44,14 +43,19 @@ export function Nav({children} : NavPro) {
     >
       <div className="w-full flex flex-col md:flex-row items-center md:justify-between px-4 gap-2">
         <div className="w-full flex items-center justify-between">
-          <h1 onClick={() => {navigate("/tech/adminPanel")}} className="cursor-pointer text-left">
-            <img src={logo3n} alt="Logo 3n" className="w-10"/>
+          <h1 className="bg-linear-to-r from-blue-500 to-violet-900 bg-clip-text text-xl font-bold text-transparent text-left">
+            Incidesk
           </h1>
 
           <div className="hidden w-1/2 md:flex "></div>
 
           <div className="flex gap-4">
-            <HiCog onClick={() => {navigate("/tech/configuracion")}} className="w-6 h-6 text-gray-700  cursor-pointer" />
+            <HiCog
+              onClick={() => {
+                navigate("/tech/configuracion");
+              }}
+              className="w-6 h-6 text-gray-700  cursor-pointer"
+            />
             <Popover content={popoverContent} placement="left">
               <HiUser className="w-6 h-6 text-gray-700  cursor-pointer" />
             </Popover>

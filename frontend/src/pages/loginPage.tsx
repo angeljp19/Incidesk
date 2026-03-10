@@ -2,7 +2,6 @@ import { useState } from "react";
 import { loginAuth } from "../api/loginAuth";
 import { useNavigate } from "react-router-dom";
 import loginImg from "../assets/loginImg.png";
-import logo3n from "../assets/3nlogo.png"
 import { InvalidCredentialsModal } from "../components/invalidCredentialsModal";
 
 export default function LoginPage() {
@@ -37,8 +36,9 @@ export default function LoginPage() {
       ></div>
       <div className="bg-gray-100 p-8 rounded-t-[100px] lg:rounded-t-none lg:rounded-r-4xl h-full w-full lg:w-1/2 flex flex-col items-center">
         <div className="flex w-full justify-center lg:justify-end">
-          <img src={logo3n} alt="Logo 3n" className="w-20 h-20 mr-4 mb-4"/>
-      
+          <h1 className="bg-linear-to-r from-blue-500 to-violet-900 bg-clip-text text-5xl font-extrabold text-transparent text-left">
+            Incidesk
+          </h1>
         </div>
 
         <div className="flex w-full h-full flex-col items-center justify-around py-10">
@@ -80,7 +80,10 @@ export default function LoginPage() {
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 outline-none"
                   required
                 />
-                <span onClick={() => navigate('/recuperarContraseña')} className="text-blue-600 hover:text-blue-700 cursor-pointer">
+                <span
+                  onClick={() => navigate("/recuperarContraseña")}
+                  className="text-blue-600 hover:text-blue-700 cursor-pointer"
+                >
                   Olvidaste tu Contraseña?
                 </span>
               </div>

@@ -7,8 +7,6 @@ import { HiUser } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-import logo3n from "../assets/3nlogo.png"
-
 
 export default function TecnicoLayout() {
   useEffect(() => {
@@ -23,7 +21,7 @@ export default function TecnicoLayout() {
   }, []);
   const user = sessionStorage.getItem("user");
   const userObj = JSON.parse(user as string);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const url =
     userObj.rol_id === 1 ? "/techUser/tecnicoPanel" : "/user/userPanel";
@@ -38,10 +36,10 @@ export default function TecnicoLayout() {
       <p className="mb-4 text-sm">{userObj.Departamento.nombre}</p>
       <div className="flex justify-center">
         <button
-        onClick={() => {
-          sessionStorage.clear()
-          navigate("/login")
-        }}
+          onClick={() => {
+            sessionStorage.clear();
+            navigate("/login");
+          }}
           type="button"
           className="rounded-lg bg-blue-700 px-3 py-1.5 text-xs outline-none font-medium text-white hover:bg-blue-800  "
         >
@@ -63,8 +61,9 @@ export default function TecnicoLayout() {
                 to={url}
                 className="bg-linear-to-r from-blue-500 to-violet-900 bg-clip-text text-xl font-bold text-transparent text-left"
               >
-                            <img src={logo3n} alt="Logo 3n" className="w-10"/>
-
+                <h1 className="bg-linear-to-r from-blue-500 to-violet-900 bg-clip-text text-xl font-bold text-transparent text-left">
+                  Incidesk
+                </h1>
               </Link>
 
               <div className="flex gap-4">
@@ -73,7 +72,6 @@ export default function TecnicoLayout() {
                 </Popover>
               </div>
             </div>
-
           </div>
         </Navbar>
       </div>
