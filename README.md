@@ -6,11 +6,12 @@ Plataforma web para **registrar, priorizar y dar seguimiento a solicitudes de so
 
 ---
 
-## Live demo (pendiente)
+## Live demo 
 
-- **Live Demo:**  
-- **Credenciales de prueba:**  
-- **GIF (flujo end-to-end):**  
+- **Live Demo:**  https://incidesk.vercel.app/
+- **Credenciales de prueba:**
+      email: demo@gmail.com
+      contraseña: 123456
 
 ---
 
